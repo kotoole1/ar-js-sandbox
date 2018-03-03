@@ -1,21 +1,23 @@
-<!DOCTYPE html>
+<!doctype HTML>
+<html>
 <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"> </script>
+<!-- include aframe-portal-door -->
+<script src='portal-src/aframe-portal-door.js'></script>
+<script src='portal-src/threex-portal-door.js'></script>
+<body style='margin : 0px; overflow: hidden;'>
+<div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+	Example v0.8</div>
 
-<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
-	<div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
-		Example v0.5</div>
-	<!-- <a-scene embedded arjs='sourceType: image; sourceUrl:../../data/images/armchair.jpg;'> -->
-	<a-scene stats embedded arjs='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 240; canvasHeight: 180'>
+<a-scene embedded arjs='trackingMethod: best;'>
 
-		<!-- define the object which gonna be put on this marker  -->
-		<a-box position='0 0.5 0' material='opacity: 0.5; side: double'>
-			<a-torus-knot radius='0.26' radius-tubular='0.05'>
-				<a-animation attribute="rotation" to="360 0 0" dur="3000" easing='linear' repeat="indefinite"></a-animation>
-			</a-torus-knot>
-		</a-box>
+	<!-- portal 360 with an image -->
+	<!-- <a-portal-door url='images/360_topaz.png' position='0 0 0' scale='1 1 1' rotation='0 90 0'><a-portal-door> -->
 
-		<a-marker-camera preset='hiro'></a-marker-camera>
-	</a-scene>
+	<!-- portal 360 with an video -->
+	<!-- <a-portal-door url='videos/pano.webm' position='0 0 0' scale='2 2 2' rotation='0 90 0'><a-portal-door> -->
+	<a-portal-door url='videos/aframe-city-360.mp4' position='0 0 0' scale='2 2 2' rotation='0 90 0'></a-portal-door>
+	<a-marker-camera preset='hiro'></a-marker-camera>
+</a-scene>
 </body>
 </html>
